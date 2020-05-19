@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+}
+
+group 'javamexico.org'
+version '0.0.1'
+
+def logVersion = "1.7.30"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    //db
+    implementation "com.zaxxer:HikariCP:3.4.5"
+    implementation "mysql:mysql-connector-java:8.0.20"
+    implementation "org.simpleflatmapper:sfm-jdbc:8.2.3"
+
+    //logger
+    implementation "org.tinylog:tinylog-impl:2.1.2"
+    implementation "org.slf4j:slf4j-api:${logVersion}"
+    implementation "org.slf4j:slf4j-simple:${logVersion}"
+
+    //json
+    implementation "com.google.code.gson:gson:2.8.6"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
