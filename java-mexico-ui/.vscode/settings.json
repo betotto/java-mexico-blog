@@ -1,0 +1,8 @@
+{
+  "javascript.implicitProjectConfig.checkJs": true,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#2C2F17",
+    "titleBar.activeBackground": "#3D4221",
+    "titleBar.activeForeground": "#FAFBF6"
+  }
+}
