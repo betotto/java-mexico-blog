@@ -7,7 +7,7 @@ import java.sql.ResultSet
 import java.util.*
 import kotlin.streams.toList
 
-object UsuariosDao {
+object UsuarioDao {
     private const val queryAllUsuarios = "SELECT idusuario, metadata, apodo, email, nombre, apellidos FROM usuarios"
 
     val UsuarioMapperMetaData = { rs: ResultSet, i: Int ->
@@ -38,11 +38,11 @@ object UsuariosDao {
         .addGetterForType(UsuarioMetaData::class.java, UsuarioMapperMetaData)
         .newMapper(Usuario::class.java)
 
-    fun findAllUsuarios(): List<Usuario> {
+    val findAllUsuarios = {
         Log.debug(Log.Modulo.USUARIOS, "Obteniendo posts")
         Log.debug(Log.Modulo.USUARIOS, "Query: $queryAllUsuarios")
 
-        return DataSource.mysql.connection.use { con ->
+        DataSource.mysql.connection.use { con ->
             con.prepareStatement(queryAllUsuarios).use { ps ->
                 ps.executeQuery().use { mapper.stream(it).toList() }
             }

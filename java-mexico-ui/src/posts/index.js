@@ -1,5 +1,3 @@
-/// <reference path="../types.d.ts" />
-
 import 'preact/debug';
 import '../styles/styles.less';
 import { h, render } from 'preact';
@@ -9,5 +7,5 @@ import App from './App';
 
 render(<Provider store={store}>
   <App nombre={12} />
-  <i class="material-icons">face</i>
+  <i className="material-icons">face</i>
 </Provider>, document.getElementById('posts'));

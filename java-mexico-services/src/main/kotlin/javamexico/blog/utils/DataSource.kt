@@ -4,7 +4,6 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 
 object DataSource {
-
     val mysql = {
         val config = HikariConfig()
         var port = System.getenv("DB_PORT") ?: "3306"
@@ -23,5 +22,4 @@ object DataSource {
 
         HikariDataSource(config)
     }()
-
 }

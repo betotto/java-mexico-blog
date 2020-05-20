@@ -1,6 +1,6 @@
 package javamexico.blog.posts
 
-import javamexico.blog.usuarios.UsuariosDao
+import javamexico.blog.usuarios.UsuarioDao
 import javamexico.blog.utils.DataSource
 import javamexico.blog.utils.GsonParser
 import java.sql.ResultSet
@@ -8,7 +8,7 @@ import java.sql.Statement
 import java.util.*
 object ComentariosDao {
 
-private const val addComentarioQuery = "INSERT INTO comentarios (metadata, contenido, creador, post) VALUES (?, ?, ?, ?)"
+    private const val addComentarioQuery = "INSERT INTO comentarios (metadata, contenido, creador, post) VALUES (?, ?, ?, ?)"
 
     val ComentarioMapperMetaData = { rs: ResultSet, i: Int ->
         val json: String? = rs.getString(i)
@@ -25,12 +25,12 @@ private const val addComentarioQuery = "INSERT INTO comentarios (metadata, conte
     data class Comentario(val idComentario: Int = -1,
                     val metadata: ComentarioMetaData,
                     val contenido: String,
-                    val creador: UsuariosDao.Usuario)
+                    val creador: UsuarioDao.Usuario)
 
-    fun addComentario(comentario: Comentario, post: Int, usuarioCreador: Int): Comentario {
+    val addComentario = { comentario: Comentario, post: Int, usuarioCreador: Int ->
         Log.debug(Log.Modulo.POSTS, "Usuario $usuarioCreador agregando comentario al post $post")
 
-        return DataSource.mysql.connection.use { con ->
+        DataSource.mysql.connection.use { con ->
             con.prepareStatement(addComentarioQuery, Statement.RETURN_GENERATED_KEYS).use { ps ->
                 ps.setString(1, GsonParser.localGson.toJson(comentario.metadata))
                 ps.setString(2, comentario.contenido)

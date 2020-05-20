@@ -1,6 +1,6 @@
 package javamexico.blog.posts
 
-import javamexico.blog.usuarios.UsuariosDao
+import javamexico.blog.usuarios.UsuarioDao
 import javamexico.blog.utils.DataSource
 import javamexico.blog.utils.GsonParser
 import org.simpleflatmapper.jdbc.JdbcMapperFactory
@@ -38,7 +38,7 @@ object PostsDao {
                     val categoria: CategoriaDao.Categoria,
                     val titulo: String,
                     val contenido: String,
-                    val creador: UsuariosDao.Usuario,
+                    val creador: UsuarioDao.Usuario,
                     val comentarios: List<ComentariosDao.Comentario>)
 
     private var mapperWithUsuario = JdbcMapperFactory
@@ -49,15 +49,15 @@ object PostsDao {
             Log.error(Log.Modulo.POSTS,"Error al consultar Posts $error")
         }
             .addGetterForType(PostMetaData::class.java, PostsMapperMetaData)
-            .addGetterForType(UsuariosDao.UsuarioMetaData::class.java, UsuariosDao.UsuarioMapperMetaData)
+            .addGetterForType(UsuarioDao.UsuarioMetaData::class.java, UsuarioDao.UsuarioMapperMetaData)
             .addGetterForType(ComentariosDao.ComentarioMetaData::class.java, ComentariosDao.ComentarioMapperMetaData)
             .newMapper(Post::class.java)
 
-    fun findAllPostsWithUsuario(): List<Post> {
+    val findAllPostsWithUsuario = {
         Log.debug(Log.Modulo.POSTS, "Obteniendo posts")
         Log.debug(Log.Modulo.POSTS, "Query: $queryPostDetail")
 
-        return DataSource.mysql.connection.use { con ->
+        DataSource.mysql.connection.use { con ->
             con.prepareStatement(queryPostDetail).use { ps ->
                 ps.executeQuery().use { rs -> mapperWithUsuario.stream(rs).toList() }
             }

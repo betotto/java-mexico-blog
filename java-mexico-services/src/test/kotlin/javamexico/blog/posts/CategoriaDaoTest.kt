@@ -1,23 +1,20 @@
 package javamexico.blog.posts
 
-import io.mockk.every
-import io.mockk.mockkObject
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
+import kotlin.test.AfterTest
+import kotlin.test.assertEquals
 
-object MockObj {
-    fun add(a: Int, b: Int) = a + b
-}
+class CategoriaDaoTest {
 
-@Test fun `first test`() {
+    private val categoriasEnBase = listOf(CategoriaDao.Categoria(1, "DESARROLLO"),
+            CategoriaDao.Categoria(2, "TEST"))
 
-    mockkObject(MockObj) // applies mocking to an Object
+    @Test fun `Obtener todas las categorias`() {
+        val categorias = CategoriaDao.getAllCategorias()
 
-    Assertions.assertEquals(3, MockObj.add(1, 2))
-
-    every { MockObj.add(1, 2) } returns 55
-
-    Assertions.assertEquals(55, MockObj.add(1, 2))
+        assertEquals(categorias.size, 2)
+        assertEquals(categorias, categoriasEnBase)
+    }
 
 }
 

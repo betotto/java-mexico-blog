@@ -1,3 +1,5 @@
+use javamexico_blog;
+
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -34,9 +36,9 @@ ENGINE = InnoDB;
 -- Table `javamexico_blog`.`categorias`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `javamexico_blog`.`categorias` (
-  `idcategorias` INT NOT NULL AUTO_INCREMENT,
+  `idcategoria` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`idcategorias`))
+  PRIMARY KEY (`idcategoria`))
 ENGINE = InnoDB;
 
 
