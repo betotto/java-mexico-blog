@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `javamexico_blog`.`posts` (
     ON UPDATE NO ACTION,
   CONSTRAINT `post_categoria`
     FOREIGN KEY (`categoria`)
-    REFERENCES `javamexico_blog`.`categorias` (`idcategorias`)
+    REFERENCES `javamexico_blog`.`categorias` (`idcategoria`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

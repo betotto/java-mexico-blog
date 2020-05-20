@@ -1,7 +1,6 @@
 package javamexico.blog.posts
 
 import org.junit.jupiter.api.Test
-import kotlin.test.AfterTest
 import kotlin.test.assertEquals
 
 class CategoriaDaoTest {
