@@ -1,0 +1,12 @@
+{
+  "coverageDirectory": "./coverage",
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx}"
+  ],
+  "coveragePathIgnorePatterns": [
+    "src/types.js"
+  ],
+  "transform": {
+    "^.+\\.js$": "<rootDir>/jest.transform.js"
+  }
+}

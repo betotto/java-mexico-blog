@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "eslint": "eslint src",
+    "test": "NODE_ENV=test jest --config jest.config.json test",
+    "coverage": "NODE_ENV=test jest --config jest.config.json --coverage test",
     "build:prod": "NODE_ENV=production webpack --mode=production",
     "build:dev": "NODE_ENV=development webpack --mode=development",
     "start:dev": "NODE_ENV=development webpack-dev-server --mode=development"
@@ -28,7 +30,10 @@
     "@babel/cli": "^7.8.4",
     "@babel/plugin-transform-react-jsx": "^7.9.4",
     "@babel/preset-env": "^7.9.6",
+    "@testing-library/jest-dom": "^5.8.0",
+    "@testing-library/preact": "^1.0.2",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
     "eslint": "^7.0.0",
@@ -43,8 +48,10 @@
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "rxjs": "^6.5.5",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "xstate": "^4.9.1"
   }
 }
