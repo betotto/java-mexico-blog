@@ -1,12 +1,19 @@
-import javamexico.blog.posts.ComentariosDao
-import javamexico.blog.usuarios.UsuariosDao
-import java.util.*
+import io.reactivex.rxjava3.core.Flowable
 
 fun main() {
-    val meta = ComentariosDao.ComentarioMetaData(Date(), 100)
-    val metau = UsuariosDao.UsuarioMetaData(Date(), false)
-    val comentario = ComentariosDao.Comentario(metadata = meta, contenido = "Este es un comentario desde kotlin",
-            creador = UsuariosDao.Usuario(idUsuario = 1, metadata = metau, apodo = "apodo", email = "email"));
 
-    println(ComentariosDao.addComentario(comentario, 2, comentario.creador.idUsuario))
+    Flowable.just("Hello world").subscribe { println(it) }
+/*
+
+    val server = UndertowJaxrsServer()
+    val serverBuilder = Undertow.builder().addHttpListener(8080, "127.0.0.1")
+    server.start(serverBuilder)
+
+    val deployment = ResteasyDeploymentImpl()
+    deployment.applicationClass = JavaMexicoBlog::class.java.name
+    val di = server.undertowDeployment(deployment, "/")
+    di.classLoader = server::class.java.classLoader
+    di.contextPath = "/"
+    di.deploymentName = "Service"
+    server.deploy(di)*/
 }

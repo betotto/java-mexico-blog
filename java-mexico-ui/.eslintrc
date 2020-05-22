@@ -1,93 +1,93 @@
 {
-    "parser": "babel-eslint",
-    "extends": [
-      "eslint:recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings",
-      "preact"
-    ],
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "plugins": [
-      "jsdoc"
-    ],
-    "globals": {
-      "JSXElement": true,
-      "ActionCreator": true,
-      "Action": true
-    },
-    "settings": {
-      "jsdoc": {
-        "preferredTypes": {
-          "Number": "number",
-          "Object": "object",
-          "String": "string",
-          "Bool": "boolean",
-          "Boolean": "boolean",
-          "bool": "boolean"
-        }
-      }
-    },
-    "rules": {
-      "indent": ["error", 2, { "SwitchCase": 1 }],
-      "linebreak-style": ["error", "unix"],
-      "quotes": ["error", "single"],
-      "semi": ["error", "always"],
-      "eqeqeq": ["error", "always"],
-      "no-console": "warn",
-      "eol-last": "error",
-      "no-debugger": "error",
-      "block-scoped-var": "error",
-      "no-div-regex": "error",
-      "no-eval": "error",
-      "array-bracket-spacing": "error",
-      "brace-style": "error",
-      "comma-spacing": ["error", {"before": false, "after": true}],
-      "block-spacing": "error",
-      "space-before-blocks": ["error", {"functions": "always", "keywords": "always"}],
-      "max-len": ["error", {"code": 140, "ignoreUrls": true}],
-      "key-spacing": ["error", {"beforeColon": false, "afterColon": true}],
-      "no-var": "error",
-      "no-unused-vars": "error",
-      "no-trailing-spaces": "error",
-      "no-alert": "error",
-      "no-lone-blocks": "error",
-      "no-multiple-empty-lines": ["error", {"max": 1, "maxEOF": 0}],
-      "jsdoc/require-jsdoc": ["error", {"publicOnly": {"cjs": false, "esm": true, "window": false}, "require": {"ArrowFunctionExpression": true}}],
-      "jsdoc/check-alignment": "error",
-      "jsdoc/check-examples": 0,
-      "jsdoc/check-indentation": "error",
-      "jsdoc/check-param-names": "error",
-      "jsdoc/check-syntax": "error",
-      "jsdoc/check-tag-names": "error",
-      "jsdoc/check-types": ["error"],
-      "jsdoc/implements-on-classes": "error",
-      "jsdoc/match-description": "error",
-      "jsdoc/newline-after-description": 0,
-      "jsdoc/no-types": 0,
-      "jsdoc/no-undefined-types": "error",
-      "jsdoc/require-description": "error",
-      "jsdoc/require-description-complete-sentence": "error",
-      "jsdoc/require-example": 0,
-      "jsdoc/require-hyphen-before-param-description": 0,
-      "jsdoc/require-param": "error",
-      "jsdoc/require-param-description": "error",
-      "jsdoc/require-param-name": "error",
-      "jsdoc/require-param-type": ["error", {"contexts": ["any"]}],
-      "jsdoc/require-returns": "error",
-      "jsdoc/require-returns-check": "error",
-      "jsdoc/require-returns-description": 0,
-      "jsdoc/require-returns-type": "error",
-      "jsdoc/valid-types": "error" 
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "preact"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "plugins": [
+    "jsdoc"
+  ],
+  "globals": {
+    "JSXElement": true,
+    "ActionCreator": true,
+    "Action": true
+  },
+  "settings": {
+    "jsdoc": {
+      "preferredTypes": {
+        "Number": "number",
+        "Object": "object",
+        "String": "string",
+        "Bool": "boolean",
+        "Boolean": "boolean",
+        "bool": "boolean"
+      }
+    }
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "eqeqeq": ["error", "always"],
+    "no-console": "warn",
+    "eol-last": "error",
+    "no-debugger": "error",
+    "block-scoped-var": "error",
+    "no-div-regex": "error",
+    "no-eval": "error",
+    "array-bracket-spacing": "error",
+    "brace-style": "error",
+    "comma-spacing": ["error", {"before": false, "after": true}],
+    "block-spacing": "error",
+    "space-before-blocks": ["error", {"functions": "always", "keywords": "always"}],
+    "max-len": ["error", {"code": 140, "ignoreUrls": true}],
+    "key-spacing": ["error", {"beforeColon": false, "afterColon": true}],
+    "no-var": "error",
+    "no-unused-vars": "error",
+    "no-trailing-spaces": "error",
+    "no-alert": "error",
+    "no-lone-blocks": "error",
+    "no-multiple-empty-lines": ["error", {"max": 1, "maxEOF": 0}],
+    "jsdoc/require-jsdoc": ["error", {"publicOnly": {"cjs": false, "esm": true, "window": false}, "require": {"ArrowFunctionExpression": true}}],
+    "jsdoc/check-alignment": "error",
+    "jsdoc/check-examples": 0,
+    "jsdoc/check-indentation": "error",
+    "jsdoc/check-param-names": "error",
+    "jsdoc/check-syntax": "error",
+    "jsdoc/check-tag-names": "error",
+    "jsdoc/check-types": ["error"],
+    "jsdoc/implements-on-classes": "error",
+    "jsdoc/match-description": "error",
+    "jsdoc/newline-after-description": 0,
+    "jsdoc/no-types": 0,
+    "jsdoc/no-undefined-types": "error",
+    "jsdoc/require-description": "error",
+    "jsdoc/require-description-complete-sentence": "error",
+    "jsdoc/require-example": 0,
+    "jsdoc/require-hyphen-before-param-description": 0,
+    "jsdoc/require-param": "error",
+    "jsdoc/require-param-description": "error",
+    "jsdoc/require-param-name": "error",
+    "jsdoc/require-param-type": ["error", {"contexts": ["any"]}],
+    "jsdoc/require-returns": "error",
+    "jsdoc/require-returns-check": "error",
+    "jsdoc/require-returns-description": 0,
+    "jsdoc/require-returns-type": "error",
+    "jsdoc/valid-types": "error"
   }
+}
