@@ -10,6 +10,7 @@ version '0.0.1'
 
 def logVersion = "1.7.30"
 def jupiterVersion = "5.6.2"
+def undertowVersion = "2.1.1.Final"
 
 repositories {
     mavenCentral()
@@ -38,6 +39,9 @@ dependencies {
     testCompile "org.jetbrains.kotlin:kotlin-test-junit5"
     testCompile "com.h2database:h2:1.4.200"
     testCompile "io.mockk:mockk:1.10.0"
+    testCompile "io.undertow:undertow-core:$undertowVersion"
+    testCompile "io.undertow:undertow-servlet:$undertowVersion"
+    testCompile "org.jboss.resteasy:resteasy-undertow:4.5.3.Final"
 
     providedCompile "javax.cache:cache-api:1.1.1"
 }

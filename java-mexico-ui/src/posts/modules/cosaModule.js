@@ -1,42 +1,80 @@
 import R_mergeRight from 'ramda/src/mergeRight';
 import R_clone from 'ramda/src/clone';
+import * as cosaApi from './cosaApi';
 
 const initialState = {
   count: 0
 };
 
-const PLUS_ACTION = 'PLUS_ACTION';
-const SUBSTRACT_COUNT = 'SUBSTRACT_COUNT';
+const UPDATE_STATE = 'UPDATE_STATE';
 /**
  * Es el reducer de la aplicacion.
- * @param {import('../../types').CosaModule} state - El estado de la aplicacion.
+ * @param {import('../../types').cosaState} state - El estado de la aplicacion.
  * @param {import('../../types').Action} action - Una accion de redux.
- * @returns {import('../../types').CosaModule} El nuevo estado del modulo.
+ * @returns {import('../../types').cosaState} El nuevo estado del modulo.
  */
 export default (state = R_clone(initialState), action) => {
   switch(action.type) {
-    case PLUS_ACTION: return R_mergeRight(state, { count: state.count + action.payload.value });
-    case SUBSTRACT_COUNT: return R_mergeRight(state, { count: state.count + action.payload.value });
+    case UPDATE_STATE: return R_mergeRight(state, { count: action.payload.count });
     default: return state;
   }
 };
 /**
  * Incrementa el contador en 1.
- * @returns {import('../../types').Action}
+ * @returns {Function}
  */
-export const addCount = () => ({
-  type: PLUS_ACTION,
-  payload: {
-    value: 1
-  }
-});
+export const initAppAction = () => dispatch => {
+  cosaApi.getCounter().then(resp => {
+    console.log(resp);
+    let count = 0;
+    if(resp) {
+      count = parseInt(resp, 10);
+    }
+    dispatch({
+      type: UPDATE_STATE,
+      payload: {
+        count
+      }
+    });
+  }).catch(err => {
+    alert(err)
+  });
+};
+/**
+ * Incrementa el contador en 1.
+ * @returns {Function}
+ */
+export const addCountAction = () => (dispatch, getState) => {
+  const { count } = getState().cosaState;
+  const newCount = count + 1;
+  cosaApi.saveCounter(`${newCount}`).then(resp => {
+    console.log(resp);
+    dispatch({
+      type: UPDATE_STATE,
+      payload: {
+        count: newCount
+      }
+    });
+  }).catch(err => {
+    alert(err)
+  });
+};
 /**
  * Decrementa el contador en 1.
- * @returns {import('../../types').Action}
+ * @returns {Function}
  */
-export const substractCount = () => ({
-  type: SUBSTRACT_COUNT,
-  payload: {
-    value: -1
-  }
-});
+export const substractCountAction = () => (dispatch, getState) => {
+  const { count } = getState().cosaState;
+  const newCount = count - 1;
+  cosaApi.saveCounter(`${newCount}`).then(resp => {
+    console.log(resp);
+    dispatch({
+      type: UPDATE_STATE,
+      payload: {
+        count: newCount
+      }
+    });
+  }).catch(err => {
+    alert(err)
+  });
+};

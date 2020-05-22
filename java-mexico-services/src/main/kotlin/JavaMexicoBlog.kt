@@ -1,5 +1,6 @@
 import javax.ws.rs.ApplicationPath
 import javax.ws.rs.core.Application
 
+
 @ApplicationPath("/")
-class Main: Application()
+class JavaMexicoBlog: Application()

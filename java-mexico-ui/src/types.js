@@ -1,5 +1,7 @@
 
-// No usar en codigo estos typos para el codigo, solo son para la documentación recuerda actualizarlos en los cambios
+/*
+ * No usar estos typos para el codigo, solo son para la documentación en vscode recuerda actualizarlos
+ */
 
 /**
  * Una accion de redux.
@@ -11,8 +13,8 @@ export const Action = {
   type: 'string'
 };
 /**
- * The initial state for cosaModule.
- * @typedef {object} CosaModule
+ * The initial state for cosaState.
+ * @typedef {object} cosaState
  * @property {number} count - Un contador.
  */
 export const initialState = {

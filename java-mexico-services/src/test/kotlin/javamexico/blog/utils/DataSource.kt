@@ -2,13 +2,6 @@ package javamexico.blog.utils
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
-import io.mockk.every
-import io.mockk.mockk
-import javamexico.blog.posts.CategoriaDao
-import java.sql.Connection
-import java.sql.PreparedStatement
-import java.sql.ResultSet
-import kotlin.streams.toList
 
 object DataSource {
     val mysql = {

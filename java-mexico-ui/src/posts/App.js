@@ -1,6 +1,7 @@
 import { h, JSX }  from 'preact';
+import { useEffect } from 'preact/hooks';
 import { useSelector, useDispatch } from 'react-redux';
-import { addCount, substractCount } from './modules/cosaModule';
+import * as cosaModule from './modules/cosaModule';
 /**
  * App is the root component.
  * @param {object} props The properties for the Component.
@@ -9,15 +10,20 @@ import { addCount, substractCount } from './modules/cosaModule';
  * @returns {JSX.Element}
  */
 const App = props => {
-  const todo = useSelector(state => state.cosaModule.count);
+  const todo = useSelector(state => state.cosaState.count);
   const dispatch = useDispatch();
+  useEffect(() => {
+    if(todo === 0) {
+      dispatch(cosaModule.initAppAction());
+    }
+  });
   return <div>
     <h1>
       {`Hola Preact! ${props.nombre} ${todo}`}
     </h1>
     <br />
-    <button onClick={() => dispatch(addCount())}>{'   +   '}</button>
-    <button onClick={() => dispatch(substractCount())}>{'   -   '}</button>
+    <button onClick={() => dispatch(cosaModule.addCountAction())}>{'   +   '}</button>
+    <button onClick={() => dispatch(cosaModule.substractCountAction())}>{'   -   '}</button>
   </div>;
 };
 

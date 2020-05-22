@@ -64,7 +64,10 @@ if(process.env.NODE_ENV === 'development') {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
-    hot: true
+    hot: true,
+    proxy: {
+      '/java-mexico-services-0.0.1': 'http://127.0.0.1:8080'
+    }
   };
 }
 

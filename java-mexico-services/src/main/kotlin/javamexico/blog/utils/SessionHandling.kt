@@ -10,7 +10,7 @@ import javax.inject.Singleton
 class SessionHandling {
 
     @Inject
-    var cache: Cache<String, Any>? = null
+    private var cache: Cache<String, Any>? = null
 
     val getString = { key: String ->
         cache?.get(key) ?: ""
