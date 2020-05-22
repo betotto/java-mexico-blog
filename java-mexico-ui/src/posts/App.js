@@ -1,5 +1,7 @@
 import { h, JSX }  from 'preact';
 import { useEffect } from 'preact/hooks';
+import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import { useSelector, useDispatch } from 'react-redux';
 import * as cosaModule from './modules/cosaModule';
 /**
@@ -17,14 +19,29 @@ const App = props => {
       dispatch(cosaModule.initAppAction());
     }
   });
-  return <div>
+  return <AppComponent color="green">
     <h1>
       {`Hola Preact! ${props.nombre} ${todo}`}
     </h1>
     <br />
     <button onClick={() => dispatch(cosaModule.addCountAction())}>{'   +   '}</button>
     <button onClick={() => dispatch(cosaModule.substractCountAction())}>{'   -   '}</button>
-  </div>;
+  </AppComponent>;
 };
+
+const AppStyles = props => {
+  let color = 'red';
+  if(props.color) {
+    color = props.color;
+  }
+  return css`
+    color: ${color};
+    background-color: cyan;
+  `;
+};
+
+const AppComponent = styled('div')`
+  ${AppStyles};
+`;
 
 export default App;

@@ -18,6 +18,7 @@ const config = {
         loader: 'babel-loader',
         options: {
           plugins: [
+            'emotion',
             ['@babel/plugin-transform-react-jsx', {
               pragma: 'h',
               pragmaFrag: 'Fragment'
@@ -29,7 +30,8 @@ const config = {
                 chrome: 58,
                 ie: 11
               }
-            }]
+            }],
+            '@emotion/babel-preset-css-prop'
           ]
         }
       }
